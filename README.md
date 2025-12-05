@@ -22,7 +22,7 @@
 - クエスト詳細 → 「完了」ボタンでポイント付与
 - 育児カテゴリのクエストは赤ちゃんを選択（複数登録可能）
 
-### 4. 赤ちゃん情報の登録
+### 4. お子様情報の登録
 - 名前
 - 生年月日（月齢の自動表示）
 - 複数登録可能
@@ -45,7 +45,7 @@
 - クエストごとの平均評価表示
 
 ## 管理者画面の要件
-※ RailsAdmin / ActiveAdmin を想定
+※ Admin
 
 ### 1. ユーザー管理
 - 一覧
@@ -66,17 +66,13 @@
 - email
 - encrypted_password
 - name
-- profile_image
+- ActiveStorageでprofile_image
 - total_points
-- created_at
-- updated_at
 
-### Baby
+### Child
 - user_id
 - name
-- birth_date
-- created_at
-- updated_at
+- birthday
 
 ### Quest
 - user_id
@@ -84,22 +80,16 @@
 - description
 - category（家事 / 育児）
 - default_points
-- created_at
-- updated_at
 
 ### QuestLog（実行ログ）
 - user_id
 - quest_id
-- baby_id（任意）
+- child_id（任意）
 - points_awarded
 - done_at
-- created_at
-- updated_at
 
 ### Review
 - user_id
 - quest_id
 - rating（1〜5）
 - comment
-- created_at
-- updated_at
