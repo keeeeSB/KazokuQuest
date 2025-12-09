@@ -142,6 +142,8 @@ GEM
       htmlentities (~> 4.3.3)
       launchy (>= 2.1, < 4.0)
       mail (~> 2.7)
+    enumerize (2.8.1)
+      activesupport (>= 3.2)
     erb (6.0.0)
     erubi (1.13.1)
     erubis (2.7.0)
@@ -501,6 +503,7 @@ DEPENDENCIES
   debug
   devise
   email_spec
+  enumerize
   factory_bot_rails
   haml-rails
   haml_lint
