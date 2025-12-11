@@ -1,4 +1,11 @@
 ja:
+  enumerize:
+    user:
+      role:
+        father: パパ
+        mother: ママ
+        grandpa: おじいちゃん
+        grandma: おばあちゃん
   activerecord:
     errors:
       messages:
