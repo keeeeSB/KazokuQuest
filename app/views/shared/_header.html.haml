@@ -7,14 +7,11 @@
         %ul.navbar-nav.d-flex.flex-row.gap-3
           %li.nav-item
             = link_to 'ホーム', root_path, class: 'nav-link ms-3'
-          - if user_signed_in?
-            %li.nav-item
-              = link_to '家族ページ', family_path, class: 'nav-link ms-3'
 
         %ul.navbar-nav.d-flex.flex-row.gap-3
           - if user_signed_in?
             %li.nav-item
-              = link_to current_user.name, '#', class: 'btn btn-outline-success btn-sm'
+              = link_to current_user.name, family_path, class: 'btn btn-outline-success btn-sm'
             %li.nav-item
               = button_to 'ログアウト', destroy_user_session_path, method: :delete, form: { class: 'd-inline' }, class: 'btn btn-outline-secondary btn-sm me-3'
           - else
