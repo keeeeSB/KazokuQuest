@@ -1,4 +1,3 @@
-
 %header
   %nav.navbar.navbar-light.border-bottom.mb-4
     .container-fluid.d-flex.flex-column.align-items-center
@@ -8,6 +7,9 @@
         %ul.navbar-nav.d-flex.flex-row.gap-3
           %li.nav-item
             = link_to 'ホーム', root_path, class: 'nav-link ms-3'
+          - if user_signed_in?
+            %li.nav-item
+              = link_to '家族ページ', family_path, class: 'nav-link ms-3'
 
         %ul.navbar-nav.d-flex.flex-row.gap-3
           - if user_signed_in?
