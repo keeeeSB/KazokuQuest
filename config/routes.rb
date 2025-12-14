@@ -2,11 +2,15 @@ Rails.application.routes.draw do
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
   }
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+  }
 
   namespace :admins do
     root 'static_pages#home'
   end
+
+  resource :family, only: %i[show new edit create update]
 
   root 'static_pages#home'
 

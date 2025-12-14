@@ -1,0 +1,12 @@
+%h2.text-center.mb-5 #{@family.name}家のページ
+
+.row.justify-content-center
+  .col-md-6.text-center
+    .card.shadow-sm.p-4
+      %p.mb-1
+        - @family.users.each do |user|
+          = user.name
+          = render 'families/user_role_badge', user:
+
+      .mt-3
+        = link_to '編集する', edit_family_path(@family), class: 'btn btn-outline-warning btn-sm mx-auto'
