@@ -12,6 +12,9 @@ class Admins::TasksController < Admins::ApplicationController
     @task = Task.new
   end
 
+  def edit
+  end
+
   def create
     @task = Task.new(task_params)
     if @task.save
@@ -20,9 +23,6 @@ class Admins::TasksController < Admins::ApplicationController
       flash.now[:alert] = 'タスクを作成できませんでした。'
       render :new, status: :unprocessable_content
     end
-  end
-
-  def edit
   end
 
   def update

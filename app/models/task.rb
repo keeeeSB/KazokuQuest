@@ -7,5 +7,5 @@ class Task < ApplicationRecord
   validates :category, presence: true
   validates :point, presence: true
 
-  scope :default_order, ->{ order(id: :asc) }
+  scope :default_order, -> { order(id: :asc) }
 end
