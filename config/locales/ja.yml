@@ -6,6 +6,10 @@ ja:
         mother: ママ
         grandpa: おじいちゃん
         grandma: おばあちゃん
+    task:
+      category:
+        housework: 家事
+        childcare: 育児
   activerecord:
     errors:
       messages:
