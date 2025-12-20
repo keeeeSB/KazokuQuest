@@ -1,0 +1,10 @@
+.row.justify-content-center
+  .col-md-6
+    = simple_form_for([:admins, task]) do |f|
+      .form-inputs
+        = f.input :name, autofocus: true
+        = f.input :category, as: :select, Collection: Task.category.options
+        = f.input :point
+
+      .form-actions.text-center.mt-3
+        = f.button :submit, class: 'btn btn-outline-primary'

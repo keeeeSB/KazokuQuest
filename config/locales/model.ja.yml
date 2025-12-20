@@ -3,3 +3,7 @@ ja:
     attributes:
       family:
         name: 苗字
+      task:
+        name: タスク名
+        category: カテゴリー
+        point: 点数
