@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     resources :tasks, only: %i[index show new edit create update destroy]
   end
 
+  namespace :users do
+    resources :works, only: %i[show new edit create update destroy]
+  end
+
   resource :family, only: %i[show new edit create update]
 
   root 'static_pages#home'
