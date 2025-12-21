@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   belongs_to :family, optional: true
+  has_many :works, dependent: :destroy
 
   enumerize :role, in: %i[father mother grandpa grandma]
 
