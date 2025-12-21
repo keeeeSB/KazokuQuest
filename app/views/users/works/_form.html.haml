@@ -1,0 +1,17 @@
+.row.justify-content-center
+  .col-md-6
+    = simple_form_for([:users, work]) do |f|
+      .form-inputs
+        = f.association :task,
+                        collection: Task.default_order,
+                        as: :select,
+                        label_method: :name,
+                        value_method: :id,
+                        input_html: { class: 'form-select' },
+                        autofocus: true
+        = f.input :done_on, html5: true, input_html: { max: '9999-12-31' }
+        = f.input :memo, as: :text
+
+      .form-actions.text-center.mb-3
+        = f.button :submit, class: 'btn btn-primary'
+        = link_to 'キャンセルする', root_path, class: 'btn btn-link'
