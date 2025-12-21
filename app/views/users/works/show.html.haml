@@ -1,0 +1,39 @@
+%h2.text-center.mb-3 作業詳細
+
+.row.justify-content-center
+  .col-md-6
+    .card.mb-3.shadow-sm.border-0.rounded-3
+      .card-body.py-3.text-center
+        %p.mb-1
+          作業日：
+          %strong= l(@work.done_on)
+
+        %p.mb-1
+          作業者：
+          %strong= @work.user.name
+
+        %p.mb-1
+          タスク名：
+          %strong= @work.task.name
+
+        %span.badge.bg-primary.mb-2
+          .bi.bi-tag= @work.task.category_text
+
+        %p.mb-1
+          点数：
+          %strong= @work.task.point
+
+        - if @work.memo.present?
+          %p.mt-2.small
+            %strong メモ
+          %p.small.text-muted= simple_format(@work.memo)
+
+        - if @work.user == current_user
+          .text-end
+            = link_to '編集', edit_users_work_path(@work), class: 'btn btn-sm btn-outline-warning me-2'
+            = button_to '削除',
+                        users_work_path(@work),
+                        method: :delete,
+                        data: { turbo_confirm: '本当に削除しますか？' },
+                        form: { class: 'd-inline' },
+                        class: 'btn btn-sm btn-outline-danger'
