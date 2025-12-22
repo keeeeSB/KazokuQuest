@@ -6,14 +6,14 @@
       .card-body.py-3.text-center
         %p.mb-1
           作業日：
-          %strong= l(@work.done_on)
+          %strong= l(@work.done_on, format: :long)
 
         %p.mb-1
           作業者：
           %strong= @work.user.name
 
         %p.mb-1
-          タスク名：
+          タスク：
           %strong= @work.task.name
 
         %span.badge.bg-primary.mb-2
