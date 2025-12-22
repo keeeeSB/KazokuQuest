@@ -15,7 +15,7 @@ RSpec.describe '作業機能', type: :system do
       visit users_work_path(work)
 
       expect(page).to have_selector 'h2', text: '作業詳細'
-      expect(page).to have_content '作業日： 2025年12月01日'
+      expect(page).to have_content '作業日： 2025年12月1日'
       expect(page).to have_content '作業者： アリス'
       expect(page).to have_content 'タスク： おむつ交換'
       expect(page).to have_content '育児'
@@ -44,7 +44,7 @@ RSpec.describe '作業機能', type: :system do
 
       expect(page).to have_current_path users_work_path(work)
       expect(page).to have_selector 'h2', text: '作業詳細'
-      expect(page).to have_content '作業日： 2025年12月01日'
+      expect(page).to have_content '作業日： 2025年12月1日'
       expect(page).to have_content '作業者： アリス'
       expect(page).to have_content 'タスク： 洗濯'
       expect(page).to have_content '家事'
@@ -59,7 +59,7 @@ RSpec.describe '作業機能', type: :system do
       visit users_work_path(work)
 
       expect(page).to have_selector 'h2', text: '作業詳細'
-      expect(page).to have_content '作業日： 2025年12月01日'
+      expect(page).to have_content '作業日： 2025年12月1日'
       expect(page).to have_content '作業者： アリス'
       expect(page).to have_content 'タスク： おむつ交換'
       expect(page).to have_content '育児'
@@ -92,7 +92,7 @@ RSpec.describe '作業機能', type: :system do
       visit users_work_path(work)
 
       expect(page).to have_selector 'h2', text: '作業詳細'
-      expect(page).to have_content '作業日： 2025年12月01日'
+      expect(page).to have_content '作業日： 2025年12月1日'
       expect(page).to have_content '作業者： アリス'
       expect(page).to have_content 'タスク： おむつ交換'
       expect(page).to have_content '育児'
