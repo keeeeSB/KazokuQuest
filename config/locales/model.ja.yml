@@ -7,3 +7,7 @@ ja:
         name: タスク名
         category: カテゴリー
         point: 点数
+      work:
+        task: タスク
+        done_on: 作業日
+        memo: メモ
