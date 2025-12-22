@@ -33,7 +33,7 @@ RSpec.describe '作業機能', type: :system do
 
       expect(page).to have_selector 'h2', text: '作業登録'
       select '洗濯', from: 'タスク'
-      fill_in '作業日', with: '2025-12-01'
+      fill_in '作業日', with: Date.new(2025, 12, 1)
       fill_in 'メモ', with: '多くて大変でした。'
       expect {
         click_button '登録する'
@@ -70,7 +70,7 @@ RSpec.describe '作業機能', type: :system do
 
       expect(page).to have_selector 'h2', text: '作業編集'
       select '洗濯', from: 'タスク'
-      fill_in '作業日', with: '2025-12-10'
+      fill_in '作業日', with: Date.new(2025, 12, 10)
       fill_in 'メモ', with: '多くて大変でした。'
       click_button '更新する'
 
