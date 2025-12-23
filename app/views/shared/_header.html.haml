@@ -10,8 +10,8 @@
           - if user_signed_in?
             %li.nav-item
               = link_to '作業登録', new_users_work_path, class: 'nav-link ms-3'
-            -# %li.nav-item
-            -#   = link_to '今日の記録', new_users_work_path, class: 'nav-link ms-3'
+            %li.nav-item
+              = link_to '今日の記録', users_daily_record_path(date: Date.current), class: 'nav-link ms-3'
 
         %ul.navbar-nav.d-flex.flex-row.gap-3
           - if user_signed_in?
