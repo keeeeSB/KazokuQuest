@@ -1,5 +1,4 @@
-class Users::WorksController < ApplicationController
-  before_action :authenticate_user!
+class Users::WorksController < Users::ApplicationController
   before_action :set_work, only: %i[show edit update destroy]
 
   def show
