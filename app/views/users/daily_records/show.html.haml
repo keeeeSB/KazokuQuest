@@ -11,7 +11,7 @@
 
 .row.justify-content-center.mb-4
   .col-md-4
-    = form_with url: users_daily_record_path, method: :get, local: true do |f|
+    = form_with url: users_daily_record_path, method: :get do |f|
       .input-group
         = f.date_field :date,
                        value: @daily_record.date,
