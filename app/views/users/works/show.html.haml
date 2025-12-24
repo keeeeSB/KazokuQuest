@@ -26,7 +26,7 @@
         - if @work.memo.present?
           %p.mt-2.small
             %strong メモ
-          %p.small.text-muted= simple_format(@work.memo)
+          %p.small.text-muted= simple_format(h(@work.memo))
 
         - if @work.user == current_user
           .text-end

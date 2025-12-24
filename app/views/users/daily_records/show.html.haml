@@ -1,0 +1,19 @@
+%h2.text-center.mb-5 #{l(@daily_record.date, format: :long)}の記録
+
+.row.justify-content-center.mb-3
+  .col-md-6
+    .card.shadow-sm
+      .card-body.text-center
+        - @daily_record.works.order(created_at: :asc).each do |work|
+          %p= work.task.name
+
+        %strong 合計ポイント： #{@daily_record.total_point}
+
+.row.justify-content-center.mb-4
+  .col-md-4
+    = form_with url: users_daily_record_path, method: :get do |f|
+      .input-group
+        = f.date_field :date,
+                       value: @daily_record.date,
+                       class: 'form-control'
+        = f.submit '表示', class: 'btn btn-outline-primary'
