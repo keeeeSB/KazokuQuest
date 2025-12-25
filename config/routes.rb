@@ -16,9 +16,11 @@ Rails.application.routes.draw do
     resource :daily_record, only: %i[show]
   end
 
-  resource :family, only: %i[show new edit create update]
+  resource :family, only: %i[show new edit create update] do
+    resource :daily_record, only: %i[show], module: :families
+  end
 
-  root 'static_pages#home'
+  root 'families/daily_records#show'
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
