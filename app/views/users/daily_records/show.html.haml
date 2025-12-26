@@ -7,7 +7,7 @@
         - @daily_record.works.order(created_at: :asc).each do |work|
           %p #{work.task.name} : #{work.task.point}
 
-        %strong 合計ポイント： #{@daily_record.total_point}
+        %strong 合計ポイント: #{@daily_record.total_point}
 
 .row.justify-content-center.mb-4
   .col-md-4

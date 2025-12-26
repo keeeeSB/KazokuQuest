@@ -17,7 +17,7 @@ RSpec.describe '家族の一日の記録機能', type: :system do
   describe '1日の記録詳細' do
     it 'ログイン中のユーザーは、家族の1日の記録を閲覧できる' do
       login_as alice, scope: :user
-      visit root_path
+      visit family_daily_record_path
 
       expect(page).to have_selector 'h2', text: '今日の家族の記録'
 

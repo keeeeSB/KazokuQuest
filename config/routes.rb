@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resource :daily_record, only: %i[show], module: :families
   end
 
-  root 'families/daily_records#show'
+  root 'static_pages#home'
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 

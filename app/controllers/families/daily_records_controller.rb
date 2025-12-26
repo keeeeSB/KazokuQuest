@@ -1,4 +1,6 @@
 class Families::DailyRecordsController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     date = Date.current
     family = current_user.family
