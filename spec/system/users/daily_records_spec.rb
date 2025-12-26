@@ -21,7 +21,7 @@ RSpec.describe '一日の記録機能', type: :system do
 
       expect(page).to have_content 'おむつ交換'
       expect(page).to have_content '洗濯'
-      expect(page).to have_content '合計ポイント： 8'
+      expect(page).to have_content '合計ポイント: 8'
     end
   end
 end

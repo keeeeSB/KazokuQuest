@@ -1,0 +1,12 @@
+%h2.text-center.mb-5 今日の家族の記録
+
+.row.justify-content-center.mb-3
+  .col-md-6
+    - @daily_records.each do |daily_record|
+      .card.shadow-sm{ data: { test_id: "daily-record-#{daily_record.user.id}" } }
+        .card-body.text-center
+          %h4.fw-bold.text-primary.mb-3 #{daily_record.user.name}さん
+          - daily_record.works.order(created_at: :asc).each do |work|
+            %p #{work.task.name} : #{work.task.point}
+
+          %strong 合計ポイント: #{daily_record.total_point}
