@@ -3,6 +3,6 @@ FactoryBot.define do
     family
     sequence(:email) { "family_invite_#{_1}@example.com" }
     token { 'a * 32' }
-    expires_at { Time.current + 1.day }
+    expires_at { 1.day.from_now }
   end
 end

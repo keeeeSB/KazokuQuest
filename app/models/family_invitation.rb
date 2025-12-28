@@ -1,7 +1,7 @@
 class FamilyInvitation < ApplicationRecord
   belongs_to :family
 
-  before_create :set_token, :set_expires_at
+  before_validation :set_token, :set_expires_at
 
   validates :email, presence: true
   validates :token, presence: true, uniqueness: true
