@@ -9,5 +9,5 @@
           = render 'families/user_role_badge', user:
 
       .mt-3.d-flex.flex-column.align-items-center
-        = link_to '家族を招待する', '#', class: 'btn btn-link text-secondary mb-2'
+        = link_to '家族を招待する', new_family_family_invitation_path, class: 'btn btn-link text-secondary mb-2'
         = link_to '編集する', edit_family_path(@family), class: 'btn btn-outline-warning btn-sm'
