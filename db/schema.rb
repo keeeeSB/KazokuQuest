@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_12_20_235043) do
+ActiveRecord::Schema[8.0].define(version: 2025_12_28_173136) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -26,6 +26,16 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_20_235043) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "family_invitations", force: :cascade do |t|
+    t.bigint "family_id", null: false
+    t.string "email", null: false
+    t.string "token", null: false
+    t.datetime "expires_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["family_id"], name: "index_family_invitations_on_family_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -68,6 +78,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_20_235043) do
     t.index ["user_id"], name: "index_works_on_user_id"
   end
 
+  add_foreign_key "family_invitations", "families"
   add_foreign_key "users", "families"
   add_foreign_key "works", "tasks"
   add_foreign_key "works", "users"
