@@ -18,6 +18,13 @@ Rails.application.routes.draw do
 
   resource :family, only: %i[show new edit create update] do
     resource :daily_record, only: %i[show], module: :families
+    resources :family_invitations, only: %i[new create], module: :families
+  end
+
+  resources :family_invitations, only: [] do
+    collection do
+      get :accept
+    end
   end
 
   root 'static_pages#home'
