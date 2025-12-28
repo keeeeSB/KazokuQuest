@@ -8,5 +8,7 @@ class CreateFamilyInvitations < ActiveRecord::Migration[8.0]
 
       t.timestamps
     end
+
+    add_index :family_invitations, :token, unique: true
   end
 end

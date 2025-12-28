@@ -36,6 +36,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_28_173136) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["family_id"], name: "index_family_invitations_on_family_id"
+    t.index ["token"], name: "index_family_invitations_on_token", unique: true
   end
 
   create_table "tasks", force: :cascade do |t|
