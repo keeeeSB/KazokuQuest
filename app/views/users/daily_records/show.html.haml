@@ -11,9 +11,10 @@
 
 .row.justify-content-center.mb-4
   .col-md-4
-    = form_with url: users_daily_record_path, method: :get do |f|
+    = simple_form_for :daily_record, url: users_daily_record_path, method: :get do |f|
       .input-group
-        = f.date_field :date,
-                       value: @daily_record.date,
-                       class: 'form-control'
-        = f.submit '表示', class: 'btn btn-outline-primary'
+        = f.input :date,
+                  as: :date,
+                  input_html: { value: @daily_record.date, class: 'form-control' },
+                  label: false
+        = f.button :submit, '表示', class: 'btn btn-outline-primary'

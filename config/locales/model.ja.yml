@@ -11,3 +11,5 @@ ja:
         task: タスク
         done_on: 作業日
         memo: メモ
+      family_invitation:
+        email: メールアドレス
