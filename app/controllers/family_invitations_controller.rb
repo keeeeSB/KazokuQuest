@@ -4,6 +4,7 @@ class FamilyInvitationsController < ApplicationController
 
     if invitation.nil? || invitation.expires_at < Time.current
       redirect_to root_path, alert: '無効なリンクです。'
+      return
     end
 
     if user_signed_in?

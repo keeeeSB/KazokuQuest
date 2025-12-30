@@ -6,7 +6,7 @@ class Families::FamilyInvitationsController < Families::ApplicationController
   def create
     @family_invitation = @family.family_invitations.build(family_invitation_params)
     if @family_invitation.save
-      FamilyInvitationMailer.invite(@family_invitation).deliver_later
+      FamilyInvitationMailer.invite(@family_invitation).deliver_now
       redirect_to family_path, notice: '家族招待メールを送信しました。'
     else
       flash.now[:alert] = '家族招待メールを送信できませんでした。'
