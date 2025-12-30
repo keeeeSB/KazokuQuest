@@ -6,14 +6,11 @@ RSpec.describe '家族招待機能', type: :system do
 
   before do
     create(:user, family:, name: 'アリス', role: 'mother')
+    FamilyInvitationMailer.invite(invitation).deliver_now
   end
 
   describe '家族招待' do
     context '招待されたユーザーが、ユーザー登録をしていない場合' do
-      before do
-        FamilyInvitationMailer.invite(invitation).deliver_now
-      end
-
       it '家族招待されたユーザーは、ユーザー登録後、家族情報を登録できる' do
         email = open_last_email
 
@@ -65,7 +62,6 @@ RSpec.describe '家族招待機能', type: :system do
 
     context '招待されたユーザーが、ユーザー登録済み、未ログインの場合' do
       before do
-        FamilyInvitationMailer.invite(invitation).deliver_now
         create(:user, family: nil, name: 'ボブ', role: 'father', email: 'bob@example.com', password: 'password12345')
       end
 
@@ -104,10 +100,6 @@ RSpec.describe '家族招待機能', type: :system do
     context '招待されたユーザーが、ログイン中の場合' do
       let(:user) { create(:user, family: nil, name: 'ボブ', email: 'bob@example.com') }
 
-      before do
-        FamilyInvitationMailer.invite(invitation).deliver_now
-      end
-
       it '家族情報を登録できる' do
         login_as user, scope: :user
         visit root_path
@@ -127,6 +119,26 @@ RSpec.describe '家族招待機能', type: :system do
           expect(page).to have_content 'ボブ'
           expect(page).to have_content 'パパ'
         end
+      end
+    end
+
+    context '招待メールが届いてから1日以上経過した場合' do
+      let(:user) { create(:user, email: 'bob@example.com') }
+
+      before do
+        invitation.update!(expires_at: 1.day.ago)
+        FamilyInvitationMailer.invite(invitation).deliver_now
+      end
+
+      it 'リンクが無効になる' do
+        login_as user, scope: :user
+        visit root_path
+
+        email = open_last_email
+        click_first_link_in_email(email)
+
+        expect(page).to have_content '無効なリンクです。'
+        expect(page).to have_current_path root_path
       end
     end
   end
