@@ -4,4 +4,4 @@
 家事と育児タスクを「クエスト」として記録し、完了するとポイントが貯まる家庭向けゲーミフィケーションアプリ。
 
 ## ER図
-[![Image from Gyazo](https://i.gyazo.com/ca9f361e5f5982ad9ffbee47e4015738.png)](https://gyazo.com/ca9f361e5f5982ad9ffbee47e4015738)
+[![Image from Gyazo](https://i.gyazo.com/f84d41d793965869a9bd60f676b9e8b5.png)](https://gyazo.com/f84d41d793965869a9bd60f676b9e8b5)
