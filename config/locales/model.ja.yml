@@ -13,3 +13,9 @@ ja:
         memo: メモ
       family_invitation:
         email: メールアドレス
+      badge:
+        name: バッジ名
+        description: 説明
+        rule_type: 種別
+        rule_value: 条件値
+        enabled: 有効化する
