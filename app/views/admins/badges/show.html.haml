@@ -1,0 +1,31 @@
+%h2.text-center.mb-4 バッジ詳細
+
+.row.justify-content-center
+  .col-md-8
+    %table.table.table-bordered.w-100
+      %tbody
+        %tr
+          %th.text-center.w-25 バッジ名
+          %td= @badge.name
+        %tr
+          %th.text-center.w-25 説明
+          %td= simple_format(@badge.description)
+        %tr
+          %th.text-center.w-25 種別
+          %td= @badge.rule_type.text
+        %tr
+          %th.text-center.w-25 条件値
+          %td= @badge.rule_value
+        %tr
+          %th.text-center.w-25 有効状況
+          %td= render 'admins/badges/enabled_status_badge', badge: @badge
+
+    .text-center.mt-4
+      = link_to '一覧に戻る', admins_badges_path, class: 'btn btn-outline-secondary me-2'
+      = link_to '編集する', edit_admins_badge_path(@badge), class: 'btn btn-outline-warning me-2'
+      = button_to '削除する',
+                  admins_badge_path(@badge),
+                  method: :delete,
+                  data: { turbo_confirm: '本当に削除しますか？' },
+                  form: { class: 'd-inline' },
+                  class: 'btn btn-outline-danger'

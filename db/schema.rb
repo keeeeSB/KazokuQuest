@@ -24,14 +24,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_31_213331) do
 
   create_table "badges", force: :cascade do |t|
     t.string "name", null: false
-    t.text "describe", null: false
+    t.text "description", null: false
     t.string "rule_type", null: false
     t.integer "rule_value", null: false
     t.boolean "enabled", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_badges_on_name", unique: true
-    t.index ["rule_type", "rule_value"], name: "index_badges_on_rule_type_and_rule_value", unique: true
   end
 
   create_table "families", force: :cascade do |t|

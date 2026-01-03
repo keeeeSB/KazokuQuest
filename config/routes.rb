@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace :admins do
     root 'static_pages#home'
     resources :tasks, only: %i[index show new edit create update destroy]
+    resources :badges, only: %i[index show new edit create update destroy]
   end
 
   namespace :users do

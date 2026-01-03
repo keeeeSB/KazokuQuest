@@ -1,0 +1,12 @@
+.row.justify-content-center
+  .col-md-6
+    = simple_form_for([:admins, badge]) do |f|
+      .form-inputs
+        = f.input :name, autofocus: true
+        = f.input :description, as: :text
+        = f.input :rule_type, as: :select, input_html: { rows: 5 }
+        = f.input :rule_value
+        = f.input :enabled, as: :boolean
+
+      .form-actions.text-center.mt-3
+        = f.button :submit, class: 'btn btn-outline-primary'
