@@ -11,4 +11,5 @@ class Badge < ApplicationRecord
   validates :rule_value, presence: true
 
   scope :default_order, -> { order(:id) }
+  scope :active, -> { where(enabled: true) }
 end
