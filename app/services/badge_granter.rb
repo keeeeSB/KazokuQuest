@@ -9,7 +9,7 @@ class BadgeGranter
 
   def call
     Badge.active.each do |badge|
-      next if @user.badges.exists?(badge_id: badge.id)
+      next if @user.user_badges.exists?(badge_id: badge.id)
       next unless BadgeRuleEvaluator.call(@user, badge)
 
       grant_badge(badge)

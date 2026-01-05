@@ -22,10 +22,10 @@ class BadgeRuleEvaluator
   private
 
   def total_points_rule?
-    @user.tasks.sum(:point) >= @badge.rule_value
+    @user.works.sum(:point) >= @badge.rule_value
   end
 
   def first_task_rule?
-    @user.tasks.count == 1
+    @user.works.count == 1
   end
 end
