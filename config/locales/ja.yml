@@ -12,9 +12,7 @@ ja:
         childcare: 育児
     badge:
       rule_type:
-        tasks_completed: タスク達成
         total_points: 合計ポイント
-        streak_days: 連続達成
         first_task: 初回達成
   activerecord:
     errors:

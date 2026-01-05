@@ -18,6 +18,7 @@ class Admins::TasksController < Admins::ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
+      BadgeGranter.call(current_user)
       redirect_to admins_task_path(@task), notice: 'タスクを作成しました。'
     else
       flash.now[:alert] = 'タスクを作成できませんでした。'

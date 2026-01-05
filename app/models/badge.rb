@@ -1,7 +1,7 @@
 class Badge < ApplicationRecord
   extend Enumerize
 
-  enumerize :rule_type, in: %i[tasks_completed total_points streak_days first_task]
+  enumerize :rule_type, in: %i[total_points first_task]
 
   has_many :user_badges, dependent: :destroy
 
