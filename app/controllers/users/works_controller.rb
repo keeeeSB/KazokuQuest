@@ -14,6 +14,7 @@ class Users::WorksController < Users::ApplicationController
   def create
     @work = current_user.works.build(work_params)
     if @work.save
+      BadgeGranter.call(current_user)
       redirect_to users_work_path(@work), notice: '作業を記録しました。'
     else
       flash.now[:alert] = '作業を記録できませんでした。'
