@@ -1,0 +1,28 @@
+%h2.text-center.mb-3 #{current_user.name}のプロフィール
+
+.row.justify-content-center
+  .col-md-6
+    .card.shadow-sm.mb-3
+      .card-body
+        %h5.card-title.text-center.mb-3 獲得したバッジ
+
+        - if current_user.badges.any?
+          %ul.list-group.list-group-flush
+            - current_user.badges.each do |badge|
+              %li.list-group-item
+                .row.align-items-center
+                  .col-md-4.text-center
+                    .award-badge.mx-auto
+                      %i.bi.bi-award
+                  .col-md-8.text-center
+                    %span
+                      %strong= badge.name
+                      %br
+                      %small.text-muted= badge.description
+
+        - else
+          %p.text-center.text-muted.mb-0
+            まだバッジを獲得していません
+
+    .text-center
+      = link_to '家族ページへ', family_path, class: 'btn btn-outline-secondary btn-sm'
