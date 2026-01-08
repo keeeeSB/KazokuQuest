@@ -6,14 +6,14 @@ RSpec.describe 'バッジ機能', type: :system do
     create(:badge,
            name: '初家事バッジ',
            description: '初めて家事を行ったユーザーに付与されるバッジ。',
-           rule_type: 'first_task',
+           rule_type: 'task_count',
            rule_value: 1,
            enabled: true)
   end
 
   describe 'バッジ一覧' do
     before do
-      create(:badge, name: '初育児バッジ', rule_type: 'first_task', enabled: true)
+      create(:badge, name: '初育児バッジ', rule_type: 'task_count', enabled: true)
     end
 
     it '管理者は、バッジの一覧を閲覧できる' do
@@ -26,12 +26,12 @@ RSpec.describe 'バッジ機能', type: :system do
       expect(page).to have_selector 'h2', text: 'バッジ一覧'
 
       within('tr', text: '初家事バッジ') do
-        expect(page).to have_content '初回達成'
+        expect(page).to have_content '合計回数'
         expect(page).to have_content '有効'
       end
 
       within('tr', text: '初育児バッジ') do
-        expect(page).to have_content '初回達成'
+        expect(page).to have_content '合計回数'
         expect(page).to have_content '有効'
       end
     end
@@ -53,7 +53,7 @@ RSpec.describe 'バッジ機能', type: :system do
 
       expect(page).to have_content '初家事バッジ'
       expect(page).to have_content '初めて家事を行ったユーザーに付与されるバッジ。'
-      expect(page).to have_content '初回達成'
+      expect(page).to have_content '合計回数'
       expect(page).to have_content '1'
       expect(page).to have_content '有効'
     end
@@ -97,7 +97,7 @@ RSpec.describe 'バッジ機能', type: :system do
       expect(page).to have_selector 'h2', text: 'バッジ詳細'
       expect(page).to have_content '初家事バッジ'
       expect(page).to have_content '初めて家事を行ったユーザーに付与されるバッジ。'
-      expect(page).to have_content '初回達成'
+      expect(page).to have_content '合計回数'
       expect(page).to have_content '1'
       expect(page).to have_content '有効'
 
@@ -133,7 +133,7 @@ RSpec.describe 'バッジ機能', type: :system do
       expect(page).to have_selector 'h2', text: 'バッジ詳細'
       expect(page).to have_content '初家事バッジ'
       expect(page).to have_content '初めて家事を行ったユーザーに付与されるバッジ。'
-      expect(page).to have_content '初回達成'
+      expect(page).to have_content '合計回数'
       expect(page).to have_content '1'
       expect(page).to have_content '有効'
 

@@ -12,6 +12,7 @@
             %th.w-10 ID
             %th バッジ名
             %th 種別
+            %th 条件値
             %th 有効状況
             %th 操作
         %tbody
@@ -20,6 +21,7 @@
               %td= badge.id
               %td= badge.name
               %td= badge.rule_type.text
+              %td= badge.rule_value
               %td= render 'admins/badges/enabled_status_badge', badge:
               %td
                 = link_to '詳細', admins_badge_path(badge), class: 'btn btn-sm btn-outline-secondary me-2'

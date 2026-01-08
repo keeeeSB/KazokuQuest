@@ -17,5 +17,6 @@ ja:
         name: バッジ名
         description: 説明
         rule_type: 種別
+        rule_category: 対象カテゴリー
         rule_value: 条件値
         enabled: 有効化する

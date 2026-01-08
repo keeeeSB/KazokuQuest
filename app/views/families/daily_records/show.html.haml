@@ -7,6 +7,8 @@
         .card-body.text-center
           %h4.fw-bold.text-primary.mb-3 #{daily_record.user.name}さん
           - daily_record.works.order(created_at: :asc).each do |work|
-            %p #{work.task.name} : #{work.task.point}
+            %p.mb-3.d-flex.justify-content-center.align-items-center.gap-1
+              = render 'shared/category_badge', work:
+              #{work.task.name} : #{work.task.point}
 
           %strong 合計ポイント: #{daily_record.total_point}

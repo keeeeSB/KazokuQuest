@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   namespace :users do
     resources :works, only: %i[show new edit create update destroy]
     resource :daily_record, only: %i[show]
+    resource :profile, only: %i[show]
   end
 
   resource :family, only: %i[show new edit create update] do

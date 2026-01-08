@@ -27,7 +27,10 @@ RSpec.describe '家族登録機能', type: :system do
         }.to change(Family, :count).by(1)
 
         click_link 'アリス'
-        expect(page).to have_current_path family_path(user.family)
+        expect(page).to have_current_path users_profile_path
+
+        click_link '家族ページへ'
+        expect(page).to have_current_path family_path
 
         expect(page).to have_selector 'h2', text: '佐藤家のページ'
       end

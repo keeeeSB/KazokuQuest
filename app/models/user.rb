@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   belongs_to :family, optional: true
   has_many :works, dependent: :destroy
+  has_many :user_badges, dependent: :destroy
+  has_many :badges, through: :user_badges
 
   enumerize :role, in: %i[father mother grandpa grandma]
 
