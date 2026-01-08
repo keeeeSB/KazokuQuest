@@ -12,7 +12,7 @@ RSpec.describe 'バッジ取得機能', type: :system do
   end
 
   describe 'バッジ一覧' do
-    it 'ログイン中のユーザーは、取得したバッジの一覧を確認できる' do
+    it 'ログイン中のユーザーは、バッジを獲得できる' do
       login_as user, scope: :user
       visit new_users_work_path
 
