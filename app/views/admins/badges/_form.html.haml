@@ -3,8 +3,9 @@
     = simple_form_for([:admins, badge]) do |f|
       .form-inputs
         = f.input :name, autofocus: true
-        = f.input :description, as: :text
-        = f.input :rule_type, as: :select, input_html: { rows: 5 }
+        = f.input :description, as: :text, input_html: { rows: 5 }
+        = f.input :rule_type, as: :select
+        = f.input :rule_category, as: :select, include_blank: '全てのカテゴリー'
         = f.input :rule_value
         = f.input :enabled, as: :boolean
 
