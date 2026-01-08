@@ -1,7 +1,8 @@
 class Badge < ApplicationRecord
   extend Enumerize
 
-  enumerize :rule_type, in: %i[total_points first_task]
+  enumerize :rule_type, in: %i[total_points task_count]
+  enumerize :rule_category, in: %i[housework childcare]
 
   has_many :user_badges, dependent: :destroy
 
