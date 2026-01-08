@@ -1,22 +1,22 @@
-%h2.text-center.mb-5 #{l(@daily_record.date, format: :long)}の記録
+%h2.text-center.mb-4 #{l(@daily_record.date, format: :long)}の記録
 
 .row.justify-content-center.mb-3
   .col-md-6.text-center
-    .card.shadow-sm.mb-3
-      .card-body
-        - @daily_record.works.order(created_at: :asc).each do |work|
-          %p.mb-1.d-flex.justify-content-center.align-items-center
-            = render 'shared/category_badge', work:
-            #{work.task.name} : #{work.task.point}
-
-        %strong 合計ポイント: #{@daily_record.total_point}
-
     = simple_form_for :daily_record, url: users_daily_record_path, method: :get do |f|
-      .d-flex.justify-content-center
+      .d-flex.justify-content-center.mb-3
         .input-group.w-auto
           = f.input :date,
-                    input_html: { type: 'date', value: @daily_record.date, class: 'date-form' },
+                    input_html: { type: 'date', value: @daily_record.date },
                     label: false,
                     wrapper: false
 
           = f.button :submit, '表示', class: 'btn btn-primary'
+
+    .card.shadow-sm.mb-3
+      .card-body
+        - @daily_record.works.order(created_at: :asc).each do |work|
+          %p.mb-3.d-flex.justify-content-center.align-items-center.gap-1
+            = render 'shared/category_badge', work:
+            #{work.task.name} : #{work.task.point}
+
+        %strong 合計ポイント: #{@daily_record.total_point}
