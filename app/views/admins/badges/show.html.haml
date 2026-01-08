@@ -14,6 +14,12 @@
           %th.text-center.w-25 種別
           %td= @badge.rule_type.text
         %tr
+          %th.text-center.w-25 対象カテゴリー
+          - if @badge.rule_category.present?
+            %td= @badge.rule_category.text
+          - else
+            %td 全カテゴリー
+        %tr
           %th.text-center.w-25 条件値
           %td= @badge.rule_value
         %tr

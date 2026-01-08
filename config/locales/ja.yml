@@ -13,7 +13,10 @@ ja:
     badge:
       rule_type:
         total_points: 合計ポイント
-        first_task: 初回達成
+        task_count: 合計回数
+      rule_category:
+        housework: 家事
+        childcare: 育児
   activerecord:
     errors:
       messages:

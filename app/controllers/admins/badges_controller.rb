@@ -42,7 +42,7 @@ class Admins::BadgesController < Admins::ApplicationController
   private
 
   def badge_params
-    params.expect(badge: %i[name description rule_type rule_value enabled])
+    params.expect(badge: %i[name description rule_type rule_category rule_value enabled])
   end
 
   def set_badge
